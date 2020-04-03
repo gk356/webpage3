@@ -15,13 +15,14 @@ def home():
 def sanitize_h(height):
     
     feet, inches = height.split("'")
-    total_height = 12*int(feet) + int(inches.strip('"'))
-    height_m = total_height*0.025
+    total_height = 12*float(feet) + float(inches.strip('"'))
+    #height_m = total_height*0.025
     #height_m = round(height_m,2)
-    return height_m
+    return total_height
 
 def sanitize_w(weight):
-    weight_inkg = float(weight)*0.45
+    weight_inkg = float(weight)
+    #*0.45
     #weight_inkg = round(weight_inkg,2)
     return weight_inkg
 
@@ -40,7 +41,7 @@ def bmi():
          
         weight = request.form['weight']
         
-        wgt = sanitize_w(weight)
+        wgt = sanitize_w(weight)     
         
 
         bodyMI = cal_bmi(ht, wgt)
@@ -71,7 +72,14 @@ def bmi():
             return render_template("index.html")
 
 def cal_bmi(ht, wgt):
-    results = wgt/(ht*ht)
+    height_m = ht*0.025
+    height_m = round(height_m,2)
+
+    weight_inkg = wgt*0.45
+    weight_inkg = round(weight_inkg,2)
+
+    results = weight_inkg/(height_m*height_m)
+    results = round(results,2)
     #print(results)
     #results = round(results,1)
     return results

@@ -10,15 +10,17 @@ jobs:
         - pip-{{ checksum "requirements.txt"  }}
     - run:
         command: |
-          pip install --user -r requirements.txt
-          
+          pip install --user -r requirements.txt          
         name: Install Dependencies
     - save_cache:
         key: pip-{{ checksum "requirements.txt"  }}
         paths:
         - /home/circleci/.local/lib/
     - run:
-        command: pytest
+        command: |
+           virtual env
+           python index.py
+           pytest
         name: Test
     
 workflows:

@@ -33,7 +33,9 @@ workflows:
     - build-and-test
   version: 2
 
-
+########################################################################
+####             Different Config File                           #######
+########################################################################
 # version: 2.1
 
 # orbs:
@@ -55,3 +57,33 @@ workflows:
 #   main:
 #     jobs:
 #       - build-and-test
+
+
+####################################################################
+#############      Different Config File/Setting    ################
+# version: 2.1
+# jobs:
+#   run_tests:
+#     docker:
+#       - image: circleci/python:latest
+#     environment:
+#       - BASH_ENV: ~/.bashrc
+#     steps:
+#       - checkout
+#       - run:
+#           name: Install Python Dependencies
+#           command: |
+#               echo 'export PATH=/usr/local/bin:$PATH' >> $BASH_ENV
+#               pip install --user -r requirements.txt
+#       - run:
+#           name: Test
+#           command: |
+#             pytest 
+#       - store_test_results:--junitxml=test-reports/junit.xml --html=test-reports/pytest_report.html --self-contained-html
+#           path: test-reports 
+#       - store_artifacts:
+#           path: test-reports
+# workflows:
+#   build_tests:
+#     jobs:
+#       - run_tests

@@ -13,7 +13,8 @@ jobs:
       - python/save-cache
       - run:
           command: |
-              pytest
+              pytest test_bmi.py
+              pytest test_retirements.py
           name: Test
 
 workflows:

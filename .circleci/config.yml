@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   run_tests:
     docker:
-      - images: circleci/python:3.8.1
+      images: circleci/python:3.8.1
     enivroment:
       BASH_ENV: ~/.bashrc
     steps:

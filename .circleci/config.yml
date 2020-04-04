@@ -20,7 +20,7 @@ jobs:
         command: |
            virtualenv env
            source env/bin/activate
-           python index.py
+           pip install pytest
            pytest
         name: Test
     

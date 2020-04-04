@@ -3,7 +3,7 @@ jobs:
   run_tests:
     docker:
       - image: circleci/python:latest
-    enivroment:
+    environment:
       - BASH_ENV: ~/.bashrc
     steps:
       - checkout

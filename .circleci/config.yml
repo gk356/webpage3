@@ -18,7 +18,7 @@ jobs:
         paths:
         - /home/circleci/.local/lib/
     - run:
-        command: --junitxml=test-reports/junit.xml --html=test-reports/pytest_report.html --self-contained-html
+        command: pytest
         name: Test
     
 workflows:

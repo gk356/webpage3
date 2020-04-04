@@ -12,7 +12,8 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./index.py test
+          command: ./test_bmi.py test
+          command: ./test_retirement.py
           name: Test
 
 workflows:

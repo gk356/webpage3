@@ -25,8 +25,7 @@ jobs:
         name: Test
     - store_test_results:
         path: test-results
-    - store_artifacts:
-        path: test-results    
+       
 workflows:
   main:
     jobs:
@@ -38,6 +37,8 @@ workflows:
 ########################################################################
 # version: 2.1
 
+# - store_artifacts:
+#         path: test-results 
 # orbs:
 #   python: circleci/python@0.2.1
 
